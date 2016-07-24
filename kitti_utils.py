@@ -7,17 +7,21 @@ import scipy.misc as scm
 import rot_utils as ru
 import pdb
 import os
+from os import path as osp
 import copy
 
+DATA1_DIR = '/data1/pulkitag/'
+DATA0_DIR = '/data0/pulkitag'
+
 def get_paths(isNewExpDir=False):
-	dirName = '/data1/pulkitag/data_sets/kitti/'
-	svDir   = '/data0/pulkitag/kitti/'
+	dirName = osp.join(DATA1_DIR, 'data_sets','kitti/')
+	svDir   = osp.join(DATA0_DIR, 'kitti/')
 	if isNewExpDir:
-		expDir  = '/data1/pulkitag/data_sets/kitti/exp/'
+		expDir  =  osp.join(dirName, 'exp/')
 	else:
 		expDir  = '/work4/pulkitag-code/pkgs/caffe-v2-2/modelFiles/kitti/exp/'
-	snapDir = '/data1/pulkitag/projRotate/snapshots/kitti/'
-	imDir   = '/data0/pulkitag/data_sets/kitti/odometry/'
+	snapDir = osp.join(DATA1_DIR, 'projRotate/snapshots/kitti/')
+	imDir   = osp.join(DATA0_DIR, '/data_sets/kitti/odometry/')
 	prms    = {}
 	prms['odoPath']     = os.path.join(dirName, 'odometry')
 	prms['poseFile']    = os.path.join(prms['odoPath'], 'dataset', 'poses', '%02d.txt')
@@ -38,7 +42,7 @@ def get_paths(isNewExpDir=False):
 	prms['expDir']      = expDir
 	prms['snapDir']     = snapDir 
 	prms['imRootDir']   = os.path.join(imDir, 'dataset', 'sequences')
-	prms['resDir']    = '/data1/pulkitag/data_sets/kitti/results/'
+	prms['resDir']    = osp.join(DATA0_DIR, 'data_sets/kitti/results/')
 	return prms
 
 

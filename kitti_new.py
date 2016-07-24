@@ -14,8 +14,10 @@ import h5py as h5
 import pretrain as pc
 #import process3d as p3d
 
+
+CODE_DIR = os.path.dirname(os.path.realpath(__file__))
 SET_NAMES = ['train', 'test']
-baseFilePath = '/work4/pulkitag-code/pkgs/caffe-v2-2/modelFiles/kitti/base_files'
+baseFilePath = os.path.join(CODE_DIR, 'base_files')
 ##
 # Resize and convert images to 256 by 256 for saving them.
 def resize_images(prms):
