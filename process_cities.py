@@ -240,7 +240,7 @@ def get_names_and_label(prms, setName):
 					1 + myu.find_bin(t2, prms['binRange']['trans']),\
 					1 + myu.find_bin(t3, prms['binRange']['trans'])
 		#Rotations	
-		r1,r2,r3= trans[i]
+		r1,r2,r3= rot[i]
 		lb[i,3], lb[i,4], lb[i,5] = 1 + myu.find_bin(r1, prms['binRange']['rot']),\
 					1 + myu.find_bin(r2, prms['binRange']['rot']),\
 					1 + myu.find_bin(r3, prms['binRange']['rot'])
